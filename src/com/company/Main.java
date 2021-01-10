@@ -7,6 +7,11 @@ public class Main {
 
     public static void main(String[] args) {
         int i=0;
+         int columns = 0;
+        int rows = 0;
+        double tasa = 1.5;
+        double nunMalalts = 0;
+        double nunMalalts2 = 0;
         int[][] array = new int[0][0];
         while (i==0){
             System.out.println("Menu:");
@@ -18,22 +23,63 @@ public class Main {
             }
             //Opcio1//
             else if (num==1) {
-                int rows = sc.nextInt();
-                int columns = sc.nextInt();
+                 rows = sc.nextInt();
+                 columns = sc.nextInt();
                 array = new int[rows][columns];
                 System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
             }
             else if (num == 2) {
-                int rows = sc.nextInt();
-                int columns = sc.nextInt();
+                System.out.println("Posicion del malalt/s");
+                 rows = sc.nextInt();columns = sc.nextInt();
                 columns--;
                 rows--;
-                array[rows][columns] = 1;
+                System.out.println("Numero de malalts");
+                nunMalalts = (sc.nextDouble());
+                nunMalalts2 = Math.floor(tasa*nunMalalts);
+                nunMalalts = nunMalalts+nunMalalts2;
+                array[rows][columns] = (int)nunMalalts;
                 System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
             }
-            else if (num == 6) {
+            else if (num == 3){
+                System.out.println("Introduce la tasa");
+                tasa = sc.nextDouble();
+                for (int a = 0; a < rows; a++) {
+                    for (int j = 0; j < columns; j++) {
+                    array[a][j] = array[rows][columns]*(int)tasa;
+                }
+                }
+            }
+            else if (num == 4) {
+                System.out.println("Malalts curats");
+                System.out.println("Quina opció? 1(global(tots els malalts)) 2(posicio concreta)");
+                int opcio = sc.nextInt();
+                if (opcio == 1) {
+                    int rows = sc.nextInt();
+                    int columns = sc.nextInt();
+                    rows--;
+                    columns--;
+                    array[rows][columns] = 0;
+                    System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
+                }
+                if (opcio == 2) {
+                    int rows = sc.nextInt();
+                    int columns = sc.nextInt();
+                    columns--;
+                    rows--;
+                    if (array[rows][columns] == 0) {
+                        System.out.println("No tens cap malalt en aquesta posició");
+                        System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
+                    } else {
+                        array[rows][columns] = 0;
+                        System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
+                    }
+                }
+            } else if (num == 6) {
                 System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
             }
         }
     }
 }
+
+
+

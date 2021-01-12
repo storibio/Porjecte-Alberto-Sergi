@@ -26,7 +26,9 @@ public class Main {
                 rows = sc.nextInt();
                 columns = sc.nextInt();
                 array = new int[rows][columns];
-                System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
+                String [] [] arrayMostrar = new String[rows][columns];
+                System.out.println(Arrays.deepToString(arrayMostrar).replace("], ", "]\n").replace("[[", "[").replace("]]", "]").replace("null","0"));
+
             } else if (num == 2) {
                 System.out.println("Posicion del malalt/s");
                 rows = sc.nextInt();
@@ -39,6 +41,7 @@ public class Main {
                 nunMalalts = nunMalalts + nunMalalts2;
                 array[rows][columns] = (int) nunMalalts;
                 System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
+                //Opcio3//
             } else if (num == 3) {
                 System.out.println("Introduce la tasa");
                 tasa = sc.nextDouble();
@@ -48,6 +51,7 @@ public class Main {
                         array[a][j] = arrayOld[a][j] + array[a][j] * (int) tasa;
                     }
                 }
+                //Opcio4//
             } else if (num == 4) {
                 System.out.println("Malalts curats");
                 System.out.println("Quina opció? 1(global(tots els malalts)) 2(posicio concreta)");
@@ -72,11 +76,60 @@ public class Main {
                         System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
                     }
                 }
+                //Opcio5//
+            } else if (num == 5) {
+                rows = sc.nextInt();
+                columns = sc.nextInt();
+                columns--;
+                rows--;
+                int value = array[rows][columns];
+                String move = sc.next();
+                switch (move) {
+                    case "W":
+                    case "w":
+                        array [rows][columns] = 0;
+                        array [--rows][columns] =value;
+                        break;
+                    case "q":
+                    case "Q":
+                        array [rows][columns] = 0;
+                        array [--rows][--columns] =value;
+                        break;
+                    case "E":
+                    case "e":
+                        array [rows][columns] = 0;
+                        array [--rows][++columns] =value;
+                        break;
+                    case "A":
+                    case "a":
+                        array [rows][columns] = 0;
+                        array [rows][--columns] =value;
+                        break;
+                    case "d":
+                    case "D":
+                        array [rows][columns] = 0;
+                        array [rows][++columns] =value;
+                        break;
+                    case "z":
+                    case "Z":
+                        array [rows][columns] = 0;
+                        array [++rows][--columns] =value;
+                        break;
+                    case "x":
+                    case "X":
+                        array [rows][columns] = 0;
+                        array [++rows][columns] =value;
+                        break;
+                    case "c":
+                    case "C":
+                        array [rows][columns] = 0;
+                        array [++rows][++columns] =value;
+                        break;
+                }
             } else if (num == 6) {
                 System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
             }
         }
     }
 }
-
 

@@ -55,30 +55,28 @@ public class Main {
                 if (opcio == 1) {
                     for (int a = 0; a < array.length; a++) {
                         for (int j = 0; j < array[a].length; j++) {
-                            array[rows][columns] = 0;
-                        }
-                        System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
-                        if (opcio == 2) {
-                            rows = sc.nextInt();
-                            columns = sc.nextInt();
-                            columns--;
-                            rows--;
-                            if (array[rows][columns] == 0) {
-                                System.out.println("No tens cap malalt en aquesta posició");
-                                System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
-                            } else {
-                                array[rows][columns] = 0;
-                                System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
-                            }
+                            array[a][j] = 0;
                         }
                     }
                 }
-                } else if (num == 6) {
-                    System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
+                if (opcio == 2) {
+                    rows = sc.nextInt();
+                    columns = sc.nextInt();
+                    columns--;
+                    rows--;
+                    if (array[rows][columns] == 0) {
+                        System.out.println("No tens cap malalt en aquesta posició");
+                        System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
+                    } else {
+                        array[rows][columns] = 0;
+                        System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
+                    }
                 }
+            } else if (num == 6) {
+                System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
             }
         }
     }
-
+}
 
 

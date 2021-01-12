@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
         int i=0;
-         int columns = 0;
+        int columns = 0;
         int rows = 0;
         double tasa = 1.5;
         double nunMalalts = 0;
@@ -23,14 +23,14 @@ public class Main {
             }
             //Opcio1//
             else if (num==1) {
-                 rows = sc.nextInt();
-                 columns = sc.nextInt();
+                rows = sc.nextInt();
+                columns = sc.nextInt();
                 array = new int[rows][columns];
                 System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
             }
             else if (num == 2) {
                 System.out.println("Posicion del malalt/s");
-                 rows = sc.nextInt();columns = sc.nextInt();
+                rows = sc.nextInt();columns = sc.nextInt();
                 columns--;
                 rows--;
                 System.out.println("Numero de malalts");
@@ -43,10 +43,11 @@ public class Main {
             else if (num == 3){
                 System.out.println("Introduce la tasa");
                 tasa = sc.nextDouble();
-                for (int a = 0; a < rows; a++) {
-                    for (int j = 0; j < columns; j++) {
-                    array[a][j] = array[rows][columns]*(int)tasa;
-                }
+                for(int a=0; a< array.length; a++) {
+                    for(int j=0; j< array[a].length; j++) {
+                        int[][] arrayOld = array;
+                        array[a][j] = arrayOld[a][j]+array[a][j]*(int)tasa;
+                    }
                 }
             }
             else if (num == 4) {
@@ -54,16 +55,12 @@ public class Main {
                 System.out.println("Quina opció? 1(global(tots els malalts)) 2(posicio concreta)");
                 int opcio = sc.nextInt();
                 if (opcio == 1) {
-                    int rows = sc.nextInt();
-                    int columns = sc.nextInt();
-                    rows--;
-                    columns--;
                     array[rows][columns] = 0;
                     System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
                 }
                 if (opcio == 2) {
-                    int rows = sc.nextInt();
-                    int columns = sc.nextInt();
+                    rows = sc.nextInt();
+                    columns = sc.nextInt();
                     columns--;
                     rows--;
                     if (array[rows][columns] == 0) {
@@ -80,6 +77,5 @@ public class Main {
         }
     }
 }
-
 
 

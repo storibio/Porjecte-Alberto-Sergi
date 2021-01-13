@@ -16,8 +16,8 @@ En el nostre codi hem les següents variables:
  - double nunMalalt Variable per a guardar el numero de malalts.
  - double nunMalalt2 Variable que serveix per a guardar el numero de
    malalts per a poder realitzar un calculo
-   - int num Variable que serveix per a triar les opcions del menú
- - int[][] array
+ - int num Variable que serveix per a triar les opcions del menú
+ - int[][] array  Per crear el array
 
 ## Bucle  while  i  menu
 El programa es repeteix gràcies un bucle while, el bucle es deté quan l'usuari prem la tecla 0 en el menú d'opcions ja que s'activa el if que fa finalitzar el programa.
